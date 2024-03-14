@@ -1,0 +1,1 @@
+# ates_schema_registry
