@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "json schema for user creation event (version 1)",
   "definitions": {
     "event_data": {
