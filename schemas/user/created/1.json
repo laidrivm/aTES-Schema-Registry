@@ -1,5 +1,5 @@
 {
-  "description": "json schema for user creation event (version 1)",
+  "description": "json schema for user creation event, version 1",
   "definitions": {
     "event_data": {
       "type": "object",
@@ -12,19 +12,24 @@
   },
   "type": "object",
   "properties": {
-    "event_id": { "type": "string" },
-    "event_version": { "type": "integer" },
-    "event_name": { "type": "string", "enum": ["user.created"] },
-    "event_time": { "type": "string" },
-    "producer": { "type": "string" },
-    "data": { "$ref": "#/definitions/event_data" }
+    "key": { "type": "string" },
+    "value": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "event_id": { "type": "string" },
+            "event_version": { "type": "integer" },
+            "event_time": { "type": "string" },
+            "producer": { "type": "string" }
+          },
+          "required": ["event_id", "event_version", "event_time", "producer"]
+        },
+        "data": { "$ref": "#/definitions/event_data" }
+      },
+      "required": ["properties", "data"]
+    }
   },
-  "required": [
-    "event_id",
-    "event_version",
-    "event_name",
-    "event_time",
-    "producer",
-    "data"
-  ]
+  "required": ["key", "value"]
 }
