@@ -4,7 +4,7 @@ const path = require("path");
 
 const ajv = new Ajv();
 
-const validateSchema = (schemaName, event, version) => {
+const validateSchema = (event, schemaName, version) => {
   const schemaDir = schemaName.replace(/\./g, '/');
   const schemaPath = path.join(__dirname, `/schemas/${schemaDir}/${version}.json`);
   const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
