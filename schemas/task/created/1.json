@@ -19,8 +19,11 @@
         "data": {
           "type": "object",
           "properties": {
-            "user_id": { "type": "string" },
-            "user_role": { "type": "string" }
+            "task_description": { "type": "string" },
+            "task_assignee": { "type": "string" },
+            "assigned_price": { "type": "integer" },
+            "completed_price": { "type": "integer" },
+            "task_id": { "type": "string" }
           },
           "required": ["user_id", "user_role"]
         }
