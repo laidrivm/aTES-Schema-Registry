@@ -1,0 +1,36 @@
+{
+  "description": "json schema for task creation event, version 2",
+  "type": "object",
+  "properties": {
+    "key": { "type": "string", "enum": ["task.created"] },
+    "value": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "event_id": { "type": "string" },
+            "event_version": { "type": "integer" },
+            "event_time": { "type": "string" },
+            "producer": { "type": "string" }
+          },
+          "required": ["event_id", "event_version", "event_time", "producer"]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "task_description": { "type": "string" },
+            "jira_id": { "type": "string" },
+            "task_assignee": { "type": "string" },
+            "assigned_price": { "type": "integer" },
+            "completed_price": { "type": "integer" },
+            "task_id": { "type": "string" }
+          },
+          "required": ["task_description", "task_assignee", "assigned_price", "completed_price", "task_id"]
+        }
+      },
+      "required": ["properties", "data"]
+    }
+  },
+  "required": ["key", "value"]
+}
