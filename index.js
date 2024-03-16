@@ -4,9 +4,10 @@ const path = require("path");
 
 const ajv = new Ajv();
 
-const validateSchema = (event, schemaName, version) => {
+const validateSchema = (event) => {
+  const schemaName = event.key;
   const schemaDir = schemaName.replace(/\./g, '/');
-  const schemaPath = path.join(__dirname, `/schemas/${schemaDir}/${version}.json`);
+  const schemaPath = path.join(__dirname, `/schemas/${schemaDir}/${event.value.properties.event_version}.json`);
   const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
 
   console.log(`__dirname is ${__dirname}`);

@@ -1,0 +1,32 @@
+{
+  "description": "json schema for task creation event, version 1",
+  "type": "object",
+  "properties": {
+    "key": { "type": "string", "enum": ["user.created"] },
+    "value": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "event_id": { "type": "string" },
+            "event_version": { "type": "integer" },
+            "event_time": { "type": "string", "format": "date-time" },
+            "producer": { "type": "string" }
+          },
+          "required": ["event_id", "event_version", "event_time", "producer"]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "user_id": { "type": "string" },
+            "user_role": { "type": "string" }
+          },
+          "required": ["user_id", "user_role"]
+        }
+      },
+      "required": ["properties", "data"]
+    }
+  },
+  "required": ["key", "value"]
+}
