@@ -1,0 +1,32 @@
+{
+  "description": "json schema for task assign event, version 1",
+  "type": "object",
+  "properties": {
+    "key": { "type": "string", "enum": ["task.assigned"] },
+    "value": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "event_id": { "type": "string" },
+            "event_version": { "type": "integer" },
+            "event_time": { "type": "string" },
+            "producer": { "type": "string" }
+          },
+          "required": ["event_id", "event_version", "event_time", "producer"]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "task_assignee": { "type": "string" },
+            "task_id": { "type": "string" }
+          },
+          "required": ["task_assignee", "task_id"]
+        }
+      },
+      "required": ["properties", "data"]
+    }
+  },
+  "required": ["key", "value"]
+}
