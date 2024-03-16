@@ -1,0 +1,31 @@
+{
+  "description": "json schema for end day event, version 1",
+  "type": "object",
+  "properties": {
+    "key": { "type": "string", "enum": ["day.ended"] },
+    "value": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "event_id": { "type": "string" },
+            "event_version": { "type": "integer" },
+            "event_time": { "type": "string" },
+            "producer": { "type": "string" }
+          },
+          "required": ["event_id", "event_version", "event_time", "producer"]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "manually": { "type": "boolean" }
+          },
+          "required": ["manually"]
+        }
+      },
+      "required": ["properties", "data"]
+    }
+  },
+  "required": ["key", "value"]
+}
