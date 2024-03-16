@@ -10,8 +10,6 @@ const validateSchema = (event) => {
   const schemaPath = path.join(__dirname, `/schemas/${schemaDir}/${event.value.properties.event_version}.json`);
   const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
 
-  console.log(`__dirname is ${__dirname}`);
-
   const validate = ajv.compile(schema);
   const result = validate(event);
 
