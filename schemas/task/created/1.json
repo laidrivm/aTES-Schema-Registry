@@ -11,7 +11,7 @@
           "properties": {
             "event_id": { "type": "string" },
             "event_version": { "type": "integer" },
-            "event_time": { "type": "string", "format": "date-time" },
+            "event_time": { "type": "string" },
             "producer": { "type": "string" }
           },
           "required": ["event_id", "event_version", "event_time", "producer"]
