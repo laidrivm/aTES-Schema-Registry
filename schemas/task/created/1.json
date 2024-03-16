@@ -25,7 +25,7 @@
             "completed_price": { "type": "integer" },
             "task_id": { "type": "string" }
           },
-          "required": ["user_id", "user_role"]
+          "required": ["task_description", "task_assignee", "assigned_price", "completed_price", "task_id"]
         }
       },
       "required": ["properties", "data"]
