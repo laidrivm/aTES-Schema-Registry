@@ -2,7 +2,7 @@
   "description": "json schema for task creation event, version 1",
   "type": "object",
   "properties": {
-    "key": { "type": "string", "enum": ["user.created"] },
+    "key": { "type": "string", "enum": ["task.created"] },
     "value": {
       "type": "object",
       "properties": {
